@@ -1,7 +1,7 @@
 
 const api = {
 
-	wallet_details: "api/wallet/wallet_details",
+	test_api: "api/test_api",
 };
 
 export default api;

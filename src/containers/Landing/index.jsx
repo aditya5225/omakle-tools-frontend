@@ -27,7 +27,7 @@ const Landing = () => {
 
     let postData = { data: 'test' };
 
-    client.put(api.wallet_details, postData, (error, response) => {
+    client.put(api.test_api, postData, (error, response) => {
       if (!error) {
         if (!response.error) {
           console.log(response);
