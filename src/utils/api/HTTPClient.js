@@ -65,8 +65,8 @@ var HTTPClient = {
 	},
 
 	url: function (path) {
-		//var host = "http://dmapi.omakle.com";
-		 var host = "http://localhost:5000";
+		var host = "https://dmapi.omakle.com";
+		//  var host = "http://localhost:5000";
 		return host + "/" + path;
 	},
 

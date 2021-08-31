@@ -1,0 +1,108 @@
+.landing_page {
+  background-color: #edf4fa;
+  padding: 10px;
+  height: 100vh;
+  overflow-y: auto;
+
+  .background_icon {
+    position: fixed;
+    margin: 0 auto;
+    width: 80%;
+    height: 80%;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    opacity: 0.07;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search_menu {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 5px;
+
+    .dropdown_menu {
+      border: none;
+      background: none;
+
+      .dropdown_button {
+        background-color: white;
+        color: gray;
+        border: none;
+        height: 50px;
+        border-top-right-radius: 0% !important;
+        border-bottom-left-radius: 0% !important;
+        border-top-left-radius: 5px !important;
+        border-bottom-left-radius: 5px !important;
+        min-width: 100px;
+        text-align: left;
+        padding: 0 20px;
+        box-shadow: none !important;
+        outline: none;
+
+        .caret {
+          // border: solid red;
+          color: red !important;
+        }
+      }
+
+      .dropdown-item {
+        position: relative !important;
+        box-shadow: none;
+        outline: none;
+      }
+
+      .dropdown-menu {
+        border: solid #e4eefa 1px !important;
+      }
+
+      .dropdown-menu .dropdown-submenu {
+        display: none !important;
+        position: absolute !important;
+        left: 100% !important;
+        top: -40px !important;
+        border: solid #e4eefa 1px !important;
+      }
+
+      .dropdown-menu > .dropdown-item:hover > .dropdown-submenu {
+        display: block !important;
+      }
+    }
+
+    .menu_devider {
+      border-left: solid silver 1px;
+      height: 30px;
+    }
+
+    .menu_searchBar {
+      width: 100%;
+
+      input {
+        outline: none;
+        box-shadow: none;
+        border: none;
+        height: 50px !important;
+        border-top-left-radius: 0% !important;
+        border-bottom-left-radius: 0% !important;
+        border-top-right-radius: 5px !important;
+        border-bottom-right-radius: 5px !important;
+        padding: 0 15px;
+      }
+    }
+  }
+
+  .tool_card {
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 5px silver;
+    }
+  }
+}
