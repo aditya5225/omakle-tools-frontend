@@ -16,14 +16,14 @@ import client from "../../utils/api/HTTPClient";
 import api from "../../utils/api/apilist";
 import './components/LandingPage.scss';
 import Icon from '@mdi/react'
-import { mdiChevronRight, mdiMenuDown, mdiGoogleCirclesExtended } from '@mdi/js'
+import { mdiChevronRight, mdiMenuDown, mdiRadiusOutline } from '@mdi/js'
 import MaxresDefault from '../../assets/images/maxresdefault.jpg';
 
 
 const LandingPage = () => {
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [cardData, setcardData] = useState([1, 2, 3, 4, 5, 4, 4, 4,4 ]);
+  const [cardData, setcardData] = useState([1, 2, 3, 4, 5, 4, 4, 4, 4]);
 
 
   const toggle = () => setDropdownOpen(prevState => !prevState);
@@ -60,13 +60,17 @@ const LandingPage = () => {
       className='landing_page'
     >
       <div className='background_icon'>
-        <Icon path={mdiGoogleCirclesExtended}
-          className='bk_icon'
-          title="background icon"
-          size={20}
-          color="#4e7aee"
-          spin={20}
-        />
+        <div className='background_icon_box'>
+          <p>
+            <Icon path={mdiRadiusOutline}
+              className='bk_icon'
+              title="background icon"
+              size={4}
+              color="#4e7aee"
+              spin={5}
+            />
+            makle </p>
+        </div>
       </div>
 
       <Row>
