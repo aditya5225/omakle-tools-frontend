@@ -1,8 +1,43 @@
 .landing_page {
-  background-color: #edf4fa;
+  background-color: #f4f8f9;
   padding: 10px;
   height: 100vh;
   overflow-y: auto;
+
+  .home_button {
+    position: fixed;
+    top: -15px;
+    left: -15px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 0 5px silver;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    padding: 5px 0px 0px 5px;
+
+    &::before {
+      content: "O";
+      color: #6488f0;
+      font-size: 25px;
+    }
+
+    &:hover {
+      transform: scale(2.5);
+      padding: 15px 0px 0px 18px;
+      font-weight: bold;
+
+      &::before {
+        content: "Omakle";
+        color: #6488f0;
+        font-size: 7.5px;
+      }
+    }
+  }
 
   .background_icon {
     position: fixed;
@@ -14,7 +49,7 @@
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
-    opacity: .3;
+    opacity: 0.3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,6 +143,7 @@
 
   .tool_card {
     cursor: pointer;
+    color: #4F7AED;
 
     &:hover {
       box-shadow: 0 0 5px silver;

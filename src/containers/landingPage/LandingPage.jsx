@@ -18,12 +18,18 @@ import './components/LandingPage.scss';
 import Icon from '@mdi/react'
 import { mdiChevronRight, mdiMenuDown, mdiRadiusOutline } from '@mdi/js'
 import MaxresDefault from '../../assets/images/maxresdefault.jpg';
+import { Link } from 'react-router-dom';
 
 
 const LandingPage = () => {
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [cardData, setcardData] = useState([1, 2, 3, 4, 5, 4, 4, 4, 4]);
+  const [cardData, setcardData] = useState([
+    {
+      toolTitle: 'Youtube Thumbnail Downloader',
+      toolRoute: '/tools/youtube-thumbnail-downloader',
+    }
+  ]);
 
 
   const toggle = () => setDropdownOpen(prevState => !prevState);
@@ -75,6 +81,10 @@ const LandingPage = () => {
 
       <Row>
         <Col className='col-11 mx-auto'>
+
+          <div className='home_button'>
+          </div>
+
           <div className='search_menu shadow-sm sticky-top'>
             <Dropdown isOpen={dropdownOpen} toggle={toggle} className='dropdown_menu'>
               <DropdownToggle className='dropdown_button d-flex justify-content-between align-items-center'>
@@ -114,15 +124,16 @@ const LandingPage = () => {
             {
               cardData.map((val, ind) => {
                 return (
-                  <Col sm={6} md={4} lg={3} className='p-3'>
-                    <Card className='tool_card'>
-                      <CardImg top width="100%" src={MaxresDefault} alt="Card image cap" />
-                      <CardBody>
-                        <CardTitle tag="h5">Card title</CardTitle>
-                        <CardText>Some quick example text.</CardText>
-                      </CardBody>
-                    </Card>
-                  </Col>
+                  <Link key={ind} to={val.toolRoute} className= 'text-decoration-none'>
+                    <Col sm={6} md={4} lg={3} className='p-3'>
+                      <Card className='tool_card'>
+                        <CardImg top width="100%" src={MaxresDefault} alt="Card image cap" />
+                        <CardBody>
+                          <CardTitle tag="h5"> {val.toolTitle} </CardTitle>
+                        </CardBody>
+                      </Card>
+                    </Col>
+                  </Link>
                 )
               })
             }
