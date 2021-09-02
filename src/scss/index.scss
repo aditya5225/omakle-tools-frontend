@@ -4,8 +4,38 @@ html {
     // font-family: 'Times New Roman', serif !important;
     color: gray !important;
     background-color: #f4f8f9;
-}
+    z-index: 0;
 
-input {
-    color: gray !important;
+    input {
+        color: gray !important;
+        box-shadow: none !important;
+    }
+
+    p {
+        color: gray;
+    }
+
+    h1 {
+        color: gray;
+    }
+
+    h2 {
+        color: gray;
+    }
+
+    h3 {
+        color: gray;
+    }
+
+    h4 {
+        color: gray;
+    }
+
+    h5 {
+        color: gray;
+    }
+
+    h6 {
+        color: gray;
+    }
 }

@@ -1,9 +1,4 @@
 .landing_page {
-  background-color: #f4f8f9;
-  padding: 10px;
-  height: 100vh;
-  overflow-y: auto;
-
   .search_menu {
     max-width: 400px;
     margin: 0 auto;
@@ -11,6 +6,7 @@
     align-items: center;
     background: white;
     border-radius: 5px;
+    top: 5px;
 
     .dropdown_menu {
       border: none;
@@ -84,7 +80,7 @@
 
   .tool_card {
     cursor: pointer;
-    color: #4F7AED;
+    color: #4f7aed;
 
     &:hover {
       box-shadow: 0 0 5px silver;

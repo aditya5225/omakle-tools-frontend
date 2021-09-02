@@ -28,7 +28,57 @@ const LandingPage = () => {
     {
       toolTitle: 'Youtube Thumbnail Downloader',
       toolRoute: '/tools/youtube-thumbnail-downloader',
-    }
+    },
+
+    {
+      toolTitle: 'Youtube Thumbnail Downloader',
+      toolRoute: '/tools/youtube-thumbnail-downloader',
+    },
+
+    {
+      toolTitle: 'Youtube Thumbnail Downloader',
+      toolRoute: '/tools/youtube-thumbnail-downloader',
+    },
+
+    {
+      toolTitle: 'Youtube Thumbnail Downloader',
+      toolRoute: '/tools/youtube-thumbnail-downloader',
+    },
+
+    {
+      toolTitle: 'Youtube Thumbnail Downloader',
+      toolRoute: '/tools/youtube-thumbnail-downloader',
+    },
+
+    {
+      toolTitle: 'Youtube Thumbnail Downloader',
+      toolRoute: '/tools/youtube-thumbnail-downloader',
+    },
+
+    {
+      toolTitle: 'Youtube Thumbnail Downloader',
+      toolRoute: '/tools/youtube-thumbnail-downloader',
+    },
+
+    {
+      toolTitle: 'Youtube Thumbnail Downloader',
+      toolRoute: '/tools/youtube-thumbnail-downloader',
+    },
+
+    {
+      toolTitle: 'Youtube Thumbnail Downloader',
+      toolRoute: '/tools/youtube-thumbnail-downloader',
+    },
+
+    {
+      toolTitle: 'Youtube Thumbnail Downloader',
+      toolRoute: '/tools/youtube-thumbnail-downloader',
+    },
+
+    {
+      toolTitle: 'Youtube Thumbnail Downloader',
+      toolRoute: '/tools/youtube-thumbnail-downloader',
+    },
   ]);
 
 
@@ -65,10 +115,8 @@ const LandingPage = () => {
       fluid={true}
       className='landing_page'
     >
-
       <Row>
         <Col className='col-11 mx-auto'>
-
           <div className='search_menu shadow-sm sticky-top'>
             <Dropdown isOpen={dropdownOpen} toggle={toggle} className='dropdown_menu'>
               <DropdownToggle className='dropdown_button d-flex justify-content-between align-items-center'>
@@ -104,20 +152,20 @@ const LandingPage = () => {
             </div>
           </div>
 
-          <Row>
+          <Row className= 'pt-3'>
             {
               cardData.map((val, ind) => {
                 return (
-                  <Link key={ind} to={val.toolRoute} className= 'text-decoration-none'>
-                    <Col sm={6} md={4} lg={3} className='p-3'>
+                  <Col sm={6} md={4} lg={3} className='p-3'>
+                    <Link key={ind} to={val.toolRoute} className='text-decoration-none'>
                       <Card className='tool_card'>
                         <CardImg top width="100%" src={MaxresDefault} alt="Card image cap" />
                         <CardBody>
                           <CardTitle tag="h5"> {val.toolTitle} </CardTitle>
                         </CardBody>
                       </Card>
-                    </Col>
-                  </Link>
+                    </Link>
+                  </Col>
                 )
               })
             }

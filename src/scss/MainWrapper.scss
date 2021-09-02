@@ -1,78 +1,78 @@
-html {
-    box-sizing: border-box;
-    font-size: 100%;
-    // font-family: 'Times New Roman', serif !important;
-    color: gray !important;
+.main_wrapper {
     background-color: #f4f8f9;
+    padding: 10px;
+    height: 100vh;
+    overflow-y: auto;
 
-    input {
-        color: gray !important;
-    }
+    .home_button {
+        position: fixed;
+        top: -15px;
+        left: -15px;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        background-color: white;
+        box-shadow: 0 0 5px silver;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        padding: 5px 0px 0px 5px;
 
-    .main_wrapper {
-        background-color: #f4f8f9;
-        padding: 10px;
-        height: 100vh;
-        overflow-y: auto;
+        &::before {
+            content: "O";
+            color: #6488f0;
+            font-size: 25px;
+        }
 
-        .home_button {
-            position: fixed;
-            top: -15px;
-            left: -15px;
-            height: 60px;
-            width: 60px;
-            border-radius: 50%;
-            background-color: white;
-            box-shadow: 0 0 5px silver;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-            padding: 5px 0px 0px 5px;
+        &:hover {
+            transform: scale(2.5);
+            padding: 15px 0px 0px 18px;
+            font-weight: bold;
 
             &::before {
-                content: "O";
+                content: "Omakle";
                 color: #6488f0;
-                font-size: 25px;
-            }
-
-            &:hover {
-                transform: scale(2.5);
-                padding: 15px 0px 0px 18px;
-                font-weight: bold;
-
-                &::before {
-                    content: "Omakle";
-                    color: #6488f0;
-                    font-size: 7.5px;
-                }
+                font-size: 7.5px;
             }
         }
+    }
 
-        .background_icon {
-            position: fixed;
-            margin: 0 auto;
-            width: 80%;
-            height: 80%;
-            left: 0;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            text-align: center;
-            opacity: 0.3;
+    .children_content {
+        position: relative;
+        z-index: 2 !important;
+    }
+
+    .background_icon {
+        position: fixed;
+        margin: 0 auto;
+        width: 80%;
+        height: 80%;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        opacity: 0.3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1 !important;
+
+        .background_icon_box {
             display: flex;
-            justify-content: center;
             align-items: center;
 
-            .background_icon_box {
-                p {
-                    margin: 0;
+            .omakle_text {
+                padding-bottom: 30px;
+
+                &::after {
+                    content: "makle";
+                    color: #6488f0;
                     font-size: 100px;
-                    color: #4e7aee;
                 }
             }
         }
-
     }
 }
