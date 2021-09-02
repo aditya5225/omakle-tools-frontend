@@ -1,47 +1,35 @@
-import React, {useEffect} from 'react';
-import { connect } from 'react-redux';
+
+import React, { useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import { CustomizerProps, ThemeProps, RTLProps } from '../../shared/prop-types/ReducerProps';
+import '../../scss/MainWrapper.scss';
+import Icon from '@mdi/react'
+import { mdiChevronRight, mdiMenuDown, mdiRadiusOutline } from '@mdi/js'
 
-const wrapperClass = (customizer) => {
-  classNames({
-    wrapper: true,
-    'squared-corner-theme': customizer.squaredCorners,
-    'blocks-with-shadow-theme': customizer.withBoxShadow,
-    'top-navigation': customizer.topNavigation,
-  });
-};
 
-const direction = (location, rtl) => (location.pathname === '/' ? 'ltr' : rtl.direction);
-
-const MainWrapper = ({
-  theme, customizer, children, rtl, location,
-}) => {
+const MainWrapper = ({ children }) => {
 
   return (
-  <div className={`${theme.className} ${direction(location, rtl)}-support`} dir={direction(location, rtl)}>
-    <div className={wrapperClass(customizer)}>
+    <div className='main_wrapper'>
+      <div className='home_button'>
+      </div>
+
+      <div className='background_icon'>
+        <div className='background_icon_box'>
+          <p>
+            <Icon path={mdiRadiusOutline}
+              className='bk_icon'
+              title="background icon"
+              size={4}
+              color="#4e7aee"
+              spin={5}
+            />
+            makle </p>
+        </div>
+      </div>
       {children}
     </div>
-  </div>
-);
-  }
+  );
+}
 
-MainWrapper.propTypes = {
-  customizer: CustomizerProps.isRequired,
-  theme: ThemeProps.isRequired,
-  rtl: RTLProps.isRequired,
-  children: PropTypes.element.isRequired,
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
-};
 
-export default withRouter(connect(state => ({
-  theme: state.theme,
-  rtl: state.rtl,
-  customizer: state.customizer,
-}))(MainWrapper));
-
+export default withRouter(MainWrapper);

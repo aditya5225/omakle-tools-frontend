@@ -65,25 +65,9 @@ const LandingPage = () => {
       fluid={true}
       className='landing_page'
     >
-      <div className='background_icon'>
-        <div className='background_icon_box'>
-          <p>
-            <Icon path={mdiRadiusOutline}
-              className='bk_icon'
-              title="background icon"
-              size={4}
-              color="#4e7aee"
-              spin={5}
-            />
-            makle </p>
-        </div>
-      </div>
 
       <Row>
         <Col className='col-11 mx-auto'>
-
-          <div className='home_button'>
-          </div>
 
           <div className='search_menu shadow-sm sticky-top'>
             <Dropdown isOpen={dropdownOpen} toggle={toggle} className='dropdown_menu'>

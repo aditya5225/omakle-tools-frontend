@@ -7,9 +7,14 @@ import {
     Input,
     Button,
 } from 'reactstrap';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 const YoutubeThumbnailDownloader = () => {
+
+    const getData = useSelector(state => state);
+
+    console.log(getData);
 
 
     const youtube = (function () {
