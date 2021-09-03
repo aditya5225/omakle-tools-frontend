@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
     Container,
     Row,
@@ -20,6 +20,15 @@ const YoutubeThumbnailDownloader = (props) => {
 
     const [getImage, setGetImage] = useState(null);
     const [imageSize, setImageSize] = useState('maxresdefault');
+    const [getImageDimension, setGetImageDimension] = useState({});
+
+    const imageRef = useRef(null);
+
+    // https://img.youtube.com/vi/<insert-youtube-video-id-here>/default.jpg
+    // https://img.youtube.com/vi/<insert-youtube-video-id-here>/mqdefault.jpg
+    // https://img.youtube.com/vi/<insert-youtube-video-id-here>/hqdefault.jpg
+    // https://img.youtube.com/vi/<insert-youtube-video-id-here>/sddefault.jpg
+    // https://img.youtube.com/vi/<insert-youtube-video-id-here>/maxresdefault.jpg
 
 
     useEffect(() => {
@@ -34,15 +43,29 @@ const YoutubeThumbnailDownloader = (props) => {
         let getImageUrl = `https://img.youtube.com/vi/${videoUrl}/${imageSize}.jpg`;
         setGetImage(getImageUrl);
 
-    }, [getInputData])
+        imageRef.current.addEventListener("load", function () {
 
-    console.log(getImage);
+            if (imageSize == 'maxresdefault') {
+                setGetImageDimension({ height: this.naturalHeight, width: this.naturalWidth / 23 })
+            }
+            else {
+                setGetImageDimension({ height: this.naturalHeight, width: this.naturalWidth / 18 })
+            }
+            // else if (imageSize == 'hqdefault') {
+            //     setGetImageDimension({ height: this.naturalHeight, width: this.naturalWidth / 18 })
+            // }
+            // else if (imageSize == 'mqdefault') {
+            //     setGetImageDimension({ height: this.naturalHeight, width: this.naturalWidth / 18 })
+            // }
+            // else if (imageSize == 'default') {
+            //     setGetImageDimension({ height: this.naturalHeight, width: this.naturalWidth / 18 })
+            // }
+        });
 
-    // https://img.youtube.com/vi/<insert-youtube-video-id-here>/default.jpg
-    // https://img.youtube.com/vi/<insert-youtube-video-id-here>/hqdefault.jpg
-    // https://img.youtube.com/vi/<insert-youtube-video-id-here>/mqdefault.jpg
-    // https://img.youtube.com/vi/<insert-youtube-video-id-here>/sddefault.jpg
-    // https://img.youtube.com/vi/<insert-youtube-video-id-here>/maxresdefault.jpg
+    }, [getInputData]);
+
+    console.log(getImageDimension?.width / 2)
+
 
     const submitData = data => {
         // console.log(data);
@@ -64,9 +87,10 @@ const YoutubeThumbnailDownloader = (props) => {
                         />
 
                         <img
+                            ref={imageRef}
                             src={getImage}
                             alt="Youtube Thumbnail"
-                            style={{ width: '60%' }}
+                            style={{ width: `${getImageDimension.width}%` }}
                         />
                     </form>
                 </Col>
