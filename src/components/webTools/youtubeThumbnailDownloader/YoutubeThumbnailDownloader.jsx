@@ -14,8 +14,6 @@ import Icon from '@mdi/react'
 import { mdiDownload, mdiPencil } from '@mdi/js';
 import { fetchytThumbnailDataActions } from '../../../redux/actions/downloadYtThumbActions';
 
-
-
 const YoutubeThumbnailDownloader = (props) => {
     const { handleSubmit, initialize } = props
 

@@ -1,48 +1,47 @@
 
-import React, { useState, useEffect, useRef } from 'react';
-import {
-    Container,
-    Row,
-    Col,
-    Input,
-    Button,
-} from 'reactstrap';
-import { Field, reduxForm } from 'redux-form';
-import RenderInputField from '../../../containers/buildComponents/RenderInputField/RenderInputField';
-import { useSelector, useDispatch } from 'react-redux';
-import Icon from '@mdi/react'
-import { mdiDownload, mdiPencil } from '@mdi/js';
+import React, { useState, useEffect, useRef } from "react";
+import TuiImageEditor from "tui-image-editor";
+import "tui-image-editor/dist/tui-image-editor.css";
+import "tui-color-picker/dist/tui-color-picker.css";
+import FileSaver from 'file-saver';
 
 
+const ImageEditorOnline = () => {
 
-const ImageEditorOnline = (props) => {
-    const { handleSubmit, initialize } = props
+    const [imageEditorInst, setImageEditorInst] = useState(null);
 
-    // const imageEditorData = useSelector(state => state.form.imageEditorOnlineForm?.values);
+    const editorBoxRef = useRef(null);
 
-    const dispatch = useDispatch();
+    useEffect(() => {
+        let imageEditorInstData = new TuiImageEditor(editorBoxRef.current, {
+            includeUI: {
+                // menu: ["shape", "filter", "text"],
+                initMenu: "filter",
+                uiSize: {
+                    width: "100%",
+                    height: "625px"
+                },
+                menuBarPosition: "left"
+            },
+            // cssMaxWidth: 700,
+            // cssMaxHeight: 500,
+            // selectionStyle: {
+            //     cornerSize: 20,
+            //     rotatingPointOffset: 70
+            // }
+        });
 
+        setImageEditorInst(imageEditorInstData);
+    }, [])
 
-    const submitData = data => {
-        // console.log(data);
-    }
+    console.log(imageEditorInst)
+
 
     return (
-        <Container fluid={true}>
-            <Row>
-                <Col className='col-12'>
-                    <form className="form" onSubmit={handleSubmit(submitData)}>
-                        <div>
-                            <p> demo </p>
-                        </div>
-                    </form>
-                </Col>
-            </Row>
-        </Container>
+        <div>
+            <div ref={editorBoxRef}></div>
+        </div>
     );
 }
 
-export default reduxForm({
-    form: "imageEditorOnlineForm",
-})(ImageEditorOnline);
-
+export default ImageEditorOnline;

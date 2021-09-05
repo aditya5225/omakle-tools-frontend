@@ -33,7 +33,7 @@ const LandingPage = () => {
   return (
     <Container
       fluid={true}
-      className='landing_page'
+      className='landing_page p-3'
     >
       <Row>
         <Col className='col-11 mx-auto'>
