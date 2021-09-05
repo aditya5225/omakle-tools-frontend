@@ -1,7 +1,7 @@
 
 const api = {
 
-	test_api: "api/test_api",
+	downloadYtThumbnail: "tools/download_yt_thumbnail",
 };
 
 export default api;

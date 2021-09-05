@@ -12,102 +12,22 @@ import {
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button,
 } from 'reactstrap';
-import client from "../../utils/api/HTTPClient";
-import api from "../../utils/api/apilist";
 import './components/LandingPage.scss';
 import Icon from '@mdi/react'
 import { mdiChevronRight, mdiMenuDown, mdiRadiusOutline } from '@mdi/js'
 import MaxresDefault from '../../assets/images/maxresdefault.jpg';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 const LandingPage = () => {
 
+  const webToolsData = useSelector(state => state.webToolsDataReducer.webTools)
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [cardData, setcardData] = useState([
-    {
-      toolTitle: 'Youtube Thumbnail Downloader',
-      toolRoute: '/tools/youtube-thumbnail-downloader',
-    },
-
-    {
-      toolTitle: 'Youtube Thumbnail Downloader',
-      toolRoute: '/tools/youtube-thumbnail-downloader',
-    },
-
-    {
-      toolTitle: 'Youtube Thumbnail Downloader',
-      toolRoute: '/tools/youtube-thumbnail-downloader',
-    },
-
-    {
-      toolTitle: 'Youtube Thumbnail Downloader',
-      toolRoute: '/tools/youtube-thumbnail-downloader',
-    },
-
-    {
-      toolTitle: 'Youtube Thumbnail Downloader',
-      toolRoute: '/tools/youtube-thumbnail-downloader',
-    },
-
-    {
-      toolTitle: 'Youtube Thumbnail Downloader',
-      toolRoute: '/tools/youtube-thumbnail-downloader',
-    },
-
-    {
-      toolTitle: 'Youtube Thumbnail Downloader',
-      toolRoute: '/tools/youtube-thumbnail-downloader',
-    },
-
-    {
-      toolTitle: 'Youtube Thumbnail Downloader',
-      toolRoute: '/tools/youtube-thumbnail-downloader',
-    },
-
-    {
-      toolTitle: 'Youtube Thumbnail Downloader',
-      toolRoute: '/tools/youtube-thumbnail-downloader',
-    },
-
-    {
-      toolTitle: 'Youtube Thumbnail Downloader',
-      toolRoute: '/tools/youtube-thumbnail-downloader',
-    },
-
-    {
-      toolTitle: 'Youtube Thumbnail Downloader',
-      toolRoute: '/tools/youtube-thumbnail-downloader',
-    },
-  ]);
 
 
   const toggle = () => setDropdownOpen(prevState => !prevState);
-
-  // const fetchSeatMapFloorsAndRoomsDataActions = () => {
-
-  //   let postData = { data: 'test' };
-
-  //   client.put(api.test_api, postData, (error, response) => {
-  //     if (!error) {
-  //       if (!response.error) {
-  //         console.log(response);
-  //         setGetData(response.data);
-  //       } else {
-  //         console.log('error');
-  //       }
-  //     } else {
-
-  //     }
-  //   });
-  // }
-
-
-  // useEffect(() => {
-
-  //   fetchSeatMapFloorsAndRoomsDataActions();
-
-  // }, [])
 
 
   return (
@@ -152,9 +72,9 @@ const LandingPage = () => {
             </div>
           </div>
 
-          <Row className= 'pt-3'>
+          <Row className='pt-3'>
             {
-              cardData.map((val, ind) => {
+              webToolsData.map((val, ind) => {
                 return (
                   <Col sm={6} md={4} lg={3} className='p-3'>
                     <Link key={ind} to={val.toolRoute} className='text-decoration-none'>
